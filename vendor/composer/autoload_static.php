@@ -454,6 +454,7 @@ class ComposerStaticInite3bae772c4b322f01cd1c02f89ef47e9
         'App\\Model\\Admin\\Brands' => __DIR__ . '/../..' . '/app/Model/Admin/Brands.php',
         'App\\Model\\Admin\\Category' => __DIR__ . '/../..' . '/app/Model/Admin/Category.php',
         'App\\Model\\Admin\\SubCategory' => __DIR__ . '/../..' . '/app/Model/Admin/SubCategory.php',
+        'App\\Model\\Frontend\\Coupon' => __DIR__ . '/../..' . '/app/Model/Frontend/Coupon.php',
         'App\\Notifications\\AdminPasswordResetNotification' => __DIR__ . '/../..' . '/app/Notifications/AdminPasswordResetNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

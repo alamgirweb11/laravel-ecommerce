@@ -35,6 +35,7 @@ return array(
     'App\\Model\\Admin\\Brands' => $baseDir . '/app/Model/Admin/Brands.php',
     'App\\Model\\Admin\\Category' => $baseDir . '/app/Model/Admin/Category.php',
     'App\\Model\\Admin\\SubCategory' => $baseDir . '/app/Model/Admin/SubCategory.php',
+    'App\\Model\\Frontend\\Coupon' => $baseDir . '/app/Model/Frontend/Coupon.php',
     'App\\Notifications\\AdminPasswordResetNotification' => $baseDir . '/app/Notifications/AdminPasswordResetNotification.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

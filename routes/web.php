@@ -53,3 +53,11 @@ Route::post('admin/add/brand','Admin\Category\BrandController@addBrand')->name('
 Route::get('admin/edit/brand/{id}','Admin\Category\BrandController@editBrand')->name('edit_brand');
 Route::post('admin/brand','Admin\Category\BrandController@updateBrand')->name('update_brand');
 Route::get('admin/delete/{id}','Admin\Category\BrandController@deleteBrand')->name('delete_brand');
+
+// admin=== 
+// coupon section strat
+Route::get('admin/coupon','Admin\Coupon\CouponCotroller@Coupon')->name('admin.coupon');
+Route::post('admin/store/coupon','Admin\Coupon\CouponCotroller@storeCoupon')->name('store.coupon');
+Route::get('admin/edit/coupon/{id}','Admin\Coupon\CouponCotroller@editCoupon')->name('edit_coupon');
+Route::post('admin/update/coupon','Admin\Coupon\CouponCotroller@updateCoupon')->name('update_coupon');
+Route::get('admin/delete/coupon/{id}','Admin\Coupon\CouponCotroller@deleteCoupon')->name('delete_coupon');
