@@ -11,9 +11,10 @@
 							<div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
 						</div>
 						<div class="newsletter_content clearfix">
-							<form action="#" class="newsletter_form">
-								<input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
-								<button class="newsletter_button">Subscribe</button>
+							<form action="{{ route('store.newslatter') }}" class="newsletter_form" method="post">
+								@csrf
+								<input type="email" name="email" class="newsletter_input" required="required" placeholder="Enter your email address">
+								<button type="submit" class="newsletter_button">Subscribe</button>
 							</form>
 							<div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
 						</div>
@@ -139,6 +140,51 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{ asset('frontend/plugins/slick-1.8.0/slick.js')}}"></script>
 <script src="{{ asset('frontend/plugins/easing/easing.js')}}"></script>
 <script src="{{ asset('frontend/js/custom.js')}}"></script>
+{{-- for toastr --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+{{-- for sweet alert --}}
+<script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+{{-- js for get message before delete update any data or so more --}}
+<script>
+    @if(Session::has('message'))
+      var type="{{Session::get('alert-type','info')}}"
+      switch(type){
+          case 'info':
+               toastr.info("{{ Session::get('message') }}");
+               break;
+          case 'success':
+              toastr.success("{{ Session::get('message') }}");
+              break;
+          case 'warning':
+             toastr.warning("{{ Session::get('message') }}");
+              break;
+          case 'error':
+              toastr.error("{{ Session::get('message') }}");
+              break;
+      }
+    @endif
+ </script>  
+{{-- js for sweet alert --}}
+ <script>  
+     $(document).on("click", "#delete", function(e){
+         e.preventDefault();
+         var link = $(this).attr("href");
+            swal({
+              title: "Are you Want to delete?",
+              text: "Once Delete, This will be Permanently Delete!",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then((willDelete) => {
+              if (willDelete) {
+                   window.location.href = link;
+              } else {
+                swal("Safe Data!");
+              }
+            });
+        });
+</script>
 </body>
 
 </html>

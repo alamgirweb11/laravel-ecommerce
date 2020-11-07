@@ -61,3 +61,13 @@ Route::post('admin/store/coupon','Admin\Coupon\CouponCotroller@storeCoupon')->na
 Route::get('admin/edit/coupon/{id}','Admin\Coupon\CouponCotroller@editCoupon')->name('edit_coupon');
 Route::post('admin/update/coupon','Admin\Coupon\CouponCotroller@updateCoupon')->name('update_coupon');
 Route::get('admin/delete/coupon/{id}','Admin\Coupon\CouponCotroller@deleteCoupon')->name('delete_coupon');
+
+// admin =============
+// newslatter section start
+Route::get('admin/newslatter','Admin\Newslatter\NewslatterController@showNewslatter')->name('admin.newslatter');
+Route::get('admin/delete/newslatter/{id}','Admin\Newslatter\NewslatterController@deleteNewslatter')->name('delete_newslatter');
+
+
+//  frontend============
+// newslatter section start
+Route::post('store/newslatter','Frontend\Newslatter\NewslatterCotroller@storeNewslatter')->name('store.newslatter');
