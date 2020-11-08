@@ -66,6 +66,10 @@ Route::get('admin/delete/coupon/{id}','Admin\Coupon\CouponCotroller@deleteCoupon
 // newslatter section start
 Route::get('admin/newslatter','Admin\Newslatter\NewslatterController@showNewslatter')->name('admin.newslatter');
 Route::get('admin/delete/newslatter/{id}','Admin\Newslatter\NewslatterController@deleteNewslatter')->name('delete_newslatter');
+// admin==============
+// product section start
+Route::get('admin/add/product','Admin\Product\ProductController@addProduct')->name('add_product');
+Route::get('admin/all/product','Admin\Product\ProductController@allProduct')->name('all_product');
 
 
 //  frontend============

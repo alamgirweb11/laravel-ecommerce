@@ -25,6 +25,22 @@
 
   });
 </script>
+<script src="{{asset('backend/lib/medium-editor/medium-editor.js')}}"></script>
+<script src="{{asset('backend/lib/summernote/summernote-bs4.min.js')}}"></script>
+<script>
+      $(function(){
+        'use strict';
+
+        // Inline editor
+        var editor = new MediumEditor('.editable');
+
+        // Summernote editor
+        $('#summernote').summernote({
+          height: 150,
+          tooltip: false
+        })
+      });
+    </script>
 <script src="{{asset('backend/lib/Flot/jquery.flot.js')}}"></script>
 <script src="{{asset('backend/lib/Flot/jquery.flot.pie.js')}}"></script>
 <script src="{{asset('backend/lib/Flot/jquery.flot.resize.js')}}"></script>
@@ -32,7 +48,6 @@
 <script src="{{asset('backend/js/starlight.js')}}"></script>
 <script src="{{asset('backend/js/ResizeSensor.js')}}"></script>
 <script src="{{asset('backend/js/dashboard.js')}}"></script>
-
 {{-- for toastr --}}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 {{-- for sweet alert --}}

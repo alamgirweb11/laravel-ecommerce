@@ -36,6 +36,9 @@
     <link href="{{asset('backend/lib/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet">
     <link href="{{asset('backend/lib/rickshaw/rickshaw.min.css')}}" rel="stylesheet">
     <link href="{{asset('backend/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/lib/medium-editor/medium-editor.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/lib/medium-editor/default.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/lib/summernote/summernote-bs4.css')}}" rel="stylesheet">
      <!-- sweet alert -->
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
