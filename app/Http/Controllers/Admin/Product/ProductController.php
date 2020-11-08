@@ -31,5 +31,9 @@ class ProductController extends Controller
     public function allProduct(){
             // echo 'done';  
     }
-
+//  collect subcategory by ajax
+    public function subCategory($category_id){
+             $subCat = DB::table('sub_categories')->where('category_id',$category_id)->get();
+             return json_encode($subCat);
+    }
 }

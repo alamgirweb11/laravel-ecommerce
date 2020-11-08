@@ -101,25 +101,25 @@
           <div class="col-lg-4">
             <label style="display: block">Image One (main thumbnail)<span class="tx-danger">*</span></label>
             <label class="custom-file">
-            <input type="file" id="file" class="custom-file-input" name="image_one" required="" accept="image">
+            <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL1(this);" required="" accept="image">
             <span class="custom-file-control"></span>
-            <img src="#" id="one" >
-          </label>
+            <img style=" margin-right: 35px;" src="#" id="img_one" >
+            </label>
           </div>
           <div class="col-lg-4">
             <label style="display: block">Image Two<span class="tx-danger">*</span></label>
             <label class="custom-file">
-            <input type="file" id="file" class="custom-file-input" name="image_two" required="" accept="image">
+            <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL2(this);" required="" accept="image">
             <span class="custom-file-control"></span>
-            <img src="#" id="two" >
+            <img style=" margin-right: 35px;" src="#" id="img_two" >
           </label>
           </div>
           <div class="col-lg-4">
             <label style="display: block">Image Three<span class="tx-danger">*</span></label>
             <label class="custom-file">
-            <input type="file" id="file" class="custom-file-input" name="image_three" required="" accept="/image">
+            <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL3(this);" required="" accept="/image">
             <span class="custom-file-control"></span>
-            <img src="#" id="three" >
+            <img style=" margin-right: 35px;" src="#" id="img_three" >
           </label>
           </div>
         </div><!-- row -->
@@ -181,6 +181,82 @@
    
   </div><!-- sl-pagebody --> 
 </div><!-- sl-mainpanel -->
-      <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" crossorigin="anonymous"></script>
+{{-- subcategory show by ajax --}}
+<script type="text/javascript">
+  $(document).ready(function() {
+       $('select[name="category_id"]').on('change', function(){
+           var category_id = $(this).val();
+           if(category_id) {
+            //  alert(category_id);
+               $.ajax({
+                  url: "{{  url('/get/subcategory/') }}/"+category_id,
+                  type:"GET",
+                  dataType:"json",
+                   success:function(data) {
+                      var d =$('select[name="subcategory_id"]').empty();
+                         $.each(data, function(key, value){
+
+                             $('select[name="subcategory_id"]').append('<option value="'+ value.id +'">' + value.subcategory_name + '</option>');
+
+                         });
+
+                   },
+                  
+                });
+           } 
+          //  else {
+          //      alert('danger');
+          //  }
+       });
+   });
+</script>
+{{-- show image script --}}
+{{-- for image 1 --}}
+<script type="text/javascript">
+	function readURL1(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#img_one')
+                  .attr('src', e.target.result)
+                  .width(100)
+                  .height(100);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+   }
+</script>
+{{-- for image 2 --}}
+<script type="text/javascript">
+	function readURL2(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#img_two')
+                  .attr('src', e.target.result)
+                  .width(100)
+                  .height(100);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+   }
+</script>
+{{-- for image 3 --}}
+<script type="text/javascript">
+	function readURL3(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#img_three')
+                  .attr('src', e.target.result)
+                  .width(100)
+                  .height(100);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+   }
+</script>
 @endsection

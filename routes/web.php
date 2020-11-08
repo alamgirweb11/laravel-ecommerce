@@ -70,6 +70,8 @@ Route::get('admin/delete/newslatter/{id}','Admin\Newslatter\NewslatterController
 // product section start
 Route::get('admin/add/product','Admin\Product\ProductController@addProduct')->name('add_product');
 Route::get('admin/all/product','Admin\Product\ProductController@allProduct')->name('all_product');
+// get sub-category by ajax
+Route::get('get/subcategory/{category_id}','Admin\Product\ProductController@subCategory');
 
 
 //  frontend============
