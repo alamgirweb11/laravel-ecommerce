@@ -10,27 +10,26 @@
        <div class="card pd-20 pd-sm-40">
       <h6 class="card-body-title">New Product Add <a href="#" class="btn btn-success btn-sm pull-right">All Product</a></h6>
       <p class="mg-b-20 mg-sm-b-30">New product add form</p>
-      <form action="" method="post" enctype="multipart/form-data">
+      <form action="{{ route('store_product') }}" method="POST" enctype="multipart/form-data">
         @csrf
-      
       <div class="form-layout">
         <div class="row mg-b-25">
           <div class="col-lg-4">
             <div class="form-group">
               <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label>
-              <input class="form-control" type="text" name="product_name"  >
+              <input class="form-control" type="text" name="product_name" required autofocus >
             </div>
           </div><!-- col-4 -->
           <div class="col-lg-4">
             <div class="form-group">
               <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
-              <input class="form-control" type="text" name="product_code"  >
+              <input class="form-control" type="text" name="product_code" required autofocus >
             </div>
           </div><!-- col-4 -->
           <div class="col-lg-4">
             <div class="form-group">
               <label class="form-control-label">Quantity <span class="tx-danger">*</span></label>
-              <input class="form-control" type="text" name="product_quantity"  >
+              <input class="form-control" type="text" name="product_quantity" required autofocus >
             </div>
           </div><!-- col-4 -->
           <div class="col-lg-4">

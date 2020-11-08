@@ -25,6 +25,7 @@ class Product extends Model
          'mid_slider',
          'hot_new',
          'trend',
+         'buyone_getone',
          'image_one',
          'image_two',
          'image_three',
