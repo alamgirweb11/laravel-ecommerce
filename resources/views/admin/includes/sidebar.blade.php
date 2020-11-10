@@ -52,6 +52,17 @@
 
     <a href="#" class="sl-menu-link">
       <div class="sl-menu-item">
+        <i class="menu-item-icon icon ion-ios-navigate-outline tx-24"></i>
+        <span class="menu-item-label">Post Category</span>
+        <i class="menu-item-arrow fa fa-angle-down"></i>
+      </div><!-- menu-item -->
+    </a><!-- sl-menu-link -->
+    <ul class="sl-menu-sub nav flex-column">
+      <li class="nav-item"><a href="{{ route('post_category_form') }}" class="nav-link">Post Category</a></li>
+    </ul>
+
+    <a href="#" class="sl-menu-link">
+      <div class="sl-menu-item">
         <i class="menu-item-icon icon ion-ios-paper-outline tx-22"></i>
         <span class="menu-item-label">Other's</span>
         <i class="menu-item-arrow fa fa-angle-down"></i>

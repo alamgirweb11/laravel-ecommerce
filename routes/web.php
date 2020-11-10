@@ -79,7 +79,13 @@ Route::get('edit/product/{id}','Admin\Product\ProductController@editProduct')->n
 Route::post('update/product','Admin\Product\ProductController@updateProduct')->name('update.product');
 // get sub-category by ajax
 Route::get('get/subcategory/{category_id}','Admin\Product\ProductController@subCategory');
-
+// admin===========
+// post category section 
+Route::get('admin/post_category','Admin\Post\PostCategoryController@postCategory')->name('post_category_form');
+Route::post('admin/add/post_category','Admin\Post\PostCategoryController@storePostCategory')->name('store.post_category');
+Route::get('admin/edit/post_category/{id}','Admin\Post\PostCategoryController@editPostCategory')->name('edit_post_category');
+Route::post('admin/update/post_category','Admin\Post\PostCategoryController@updatePostCategory')->name('update.post_category');
+Route::get('admin/delete/post_category/{id}','Admin\Post\PostCategoryController@deletePostCategory')->name('delete_post_category');
 
 //  frontend============
 // newslatter section start
