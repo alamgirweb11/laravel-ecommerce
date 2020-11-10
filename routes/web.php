@@ -71,6 +71,12 @@ Route::get('admin/delete/newslatter/{id}','Admin\Newslatter\NewslatterController
 Route::get('admin/add/product','Admin\Product\ProductController@addProduct')->name('add_product');
 Route::get('admin/all/product','Admin\Product\ProductController@allProduct')->name('all_product');
 Route::post('admin/store/product','Admin\Product\ProductController@storeProduct')->name('store_product');
+Route::get('deactive/product/{id}','Admin\Product\ProductController@deactiveProduct')->name('deactive.product');
+Route::get('active/product/{id}','Admin\Product\ProductController@activeProduct')->name('active.product');
+Route::get('delete/product/{id}','Admin\Product\ProductController@deleteProduct')->name('delete.product');
+Route::get('view/product/{id}','Admin\Product\ProductController@viewProduct')->name('view.product');
+Route::get('edit/product/{id}','Admin\Product\ProductController@editProduct')->name('edit.product');
+Route::post('update/product','Admin\Product\ProductController@updateProduct')->name('update.product');
 // get sub-category by ajax
 Route::get('get/subcategory/{category_id}','Admin\Product\ProductController@subCategory');
 
