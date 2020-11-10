@@ -86,6 +86,15 @@ Route::post('admin/add/post_category','Admin\Post\PostCategoryController@storePo
 Route::get('admin/edit/post_category/{id}','Admin\Post\PostCategoryController@editPostCategory')->name('edit_post_category');
 Route::post('admin/update/post_category','Admin\Post\PostCategoryController@updatePostCategory')->name('update.post_category');
 Route::get('admin/delete/post_category/{id}','Admin\Post\PostCategoryController@deletePostCategory')->name('delete_post_category');
+// admin============
+// post section 
+Route::get('admin/post','Admin\Post\PostController@post')->name('add_post_form');
+Route::post('admin/add/post','Admin\Post\PostController@storePost')->name('store.post');
+Route::get('admin/all/post','Admin\Post\PostController@allPost')->name('all_posts');
+Route::get('admin/edit/post/{id}','Admin\Post\PostController@editPost')->name('edit_post');
+Route::post('admin/update/post','Admin\Post\PostController@updatePost')->name('update_post');
+Route::get('admin/delete/post/{id}','Admin\Post\PostController@deletePost')->name('delete_post');
+
 
 //  frontend============
 // newslatter section start

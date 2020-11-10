@@ -19,7 +19,7 @@ class PostCategoryController extends Controller
     }
     public function postCategory(){
            $postcats = PostCategory::all();
-           return view('admin.post.post_category',[
+           return view('admin.post_category.post_category',[
                 'postcats' => $postcats
            ]);
     }
@@ -40,7 +40,7 @@ class PostCategoryController extends Controller
     }
     public function editPostCategory($id){
             $postcat = PostCategory::find($id);
-            return view('admin.post.edit_post_category',[
+            return view('admin.post_category.edit_post_category',[
                 'postcat' => $postcat
             ]);
     }

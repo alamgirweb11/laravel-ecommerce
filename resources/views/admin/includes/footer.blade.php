@@ -41,6 +41,21 @@
         })
       });
     </script>
+
+<script>
+      $(function(){
+        'use strict';
+
+        // Inline editor
+        var editor = new MediumEditor('.editable');
+
+        // Summernote editor
+        $('#summernote1').summernote({
+          height: 150,
+          tooltip: false
+        })
+      });
+    </script>
 <script src="{{asset('backend/lib/Flot/jquery.flot.js')}}"></script>
 <script src="{{asset('backend/lib/Flot/jquery.flot.pie.js')}}"></script>
 <script src="{{asset('backend/lib/Flot/jquery.flot.resize.js')}}"></script>
