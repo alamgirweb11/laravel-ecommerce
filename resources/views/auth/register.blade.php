@@ -9,17 +9,23 @@
       <div class="tx-center mg-b-60">Ecommerce Site</div>
 
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter your username">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" placeholder="Eamil" required>
       </div><!-- form-group -->
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Enter your password">
+        <label for="mobile">Mobile</label>
+        <input type="password" class="form-control" placeholder="8801xxxxxxxxx" required>
       </div><!-- form-group -->
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Enter your fullname">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" placeholder="Password" required>
+      </div><!-- form-group -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" class="form-control" placeholder="Confirm Password" required>
       </div><!-- form-group -->
       <button type="submit" class="btn btn-info btn-block">Sign Up</button>
-
-      <div class="mg-t-40 tx-center">Already have an account? <a href="page-signin.html" class="tx-info">Sign In</a></div>
+      <div class="mg-t-40 tx-center">Already have an account? <a href="#" class="tx-info">Sign In</a></div>
     </div><!-- login-wrapper -->
   </div><!-- d-flex -->
 @endsection
