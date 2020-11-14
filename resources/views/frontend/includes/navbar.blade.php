@@ -22,20 +22,36 @@
                                         <li><a href="#">Japanese</a></li>
                                     </ul>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
                                     <ul>
                                         <li><a href="#">EUR Euro</a></li>
                                         <li><a href="#">GBP British Pound</a></li>
                                         <li><a href="#">JPY Japanese Yen</a></li>
                                     </ul>
+                                </li> --}}
+                            </ul>
+                        </div>
+                        
+                        <div class="top_bar_user">
+                            @guest
+                              <div><a href="{{ route('login') }}"><div class="user_icon"><img src="{{ asset('frontend/images/user.svg') }}" alt=""></div>Register/Login</a></div>
+                            @else 
+                            <div class="top_bar_menu">
+                            <ul class="standard_dropdown top_bar_dropdown">
+                                <li>
+                                    <a href="{{ route('user.profile') }}"><div class="user_icon"><img src="{{ asset('frontend/images/user.svg') }}" alt=""></div>
+                                        {{ Auth::user()->name }}<i class="fas fa-chevron-down"></i></a>
+                                    <ul>
+                                        <li><a href="">Wishlist</a></li>
+                                        <li><a href="">Checkout</a></li>
+                                        <li><a href="{{ route('user.logout') }}">Logout</a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
-                        <div class="top_bar_user">
-                            <div class="user_icon"><img src="images/user.svg" alt=""></div>
-                            <div><a href="{{ route('register') }}">Register</a></div>
-                            <div><a href="{{ route('login') }}">Sign in</a></div>
+                            {{-- <div><a href="{{ route('user.logout') }}">Logout</a></div> --}}
+                            @endguest
                         </div>
                     </div>
                 </div>
@@ -52,7 +68,7 @@
                 <!-- Logo -->
                 <div class="col-lg-2 col-sm-3 col-3 order-1">
                     <div class="logo_container">
-                        <div class="logo"><a href="#">Ecom</a></div>
+                        <div class="logo"><a href="{{ url('/') }}">Ecom</a></div>
                     </div>
                 </div>
                 @php
@@ -124,13 +140,8 @@
 
                         <!-- Categories Menu -->
 
-                        <div class="cat_menu_container">
-                            <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
-                                <div class="cat_burger"><span></span><span></span><span></span></div>
-                                <div class="cat_menu_text">categories</div>
-                            </div>
                            @include('frontend.includes.sidebar')                          
-                        </div>
+                        
 
                         <!-- Main Nav Menu -->
 

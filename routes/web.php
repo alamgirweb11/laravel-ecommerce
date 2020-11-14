@@ -8,8 +8,11 @@ Route::get('/', function (){
         return view('frontend.pages.home');
 });
 //auth & user
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@authLogin')->name('auth.login');
+Route::get('/home', 'HomeController@authRegister')->name('auth.register');
+Route::get('/profile', 'HomeController@userProfile')->name('user.profile');
 Route::get('/password-change', 'HomeController@changePassword')->name('password.change');
 Route::post('/password-update', 'HomeController@updatePassword')->name('password.update');
 Route::get('/user/logout', 'HomeController@Logout')->name('user.logout');
