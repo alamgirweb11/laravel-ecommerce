@@ -21,10 +21,10 @@ use Symfony\Component\VarDumper\Cloner\DumperInterface;
  */
 abstract class AbstractDumper implements DataDumperInterface, DumperInterface
 {
-    const DUMP_LIGHT_ARRAY = 1;
-    const DUMP_STRING_LENGTH = 2;
-    const DUMP_COMMA_SEPARATOR = 4;
-    const DUMP_TRAILING_COMMA = 8;
+    public const DUMP_LIGHT_ARRAY = 1;
+    public const DUMP_STRING_LENGTH = 2;
+    public const DUMP_COMMA_SEPARATOR = 4;
+    public const DUMP_TRAILING_COMMA = 8;
 
     public static $defaultOutput = 'php://output';
 
@@ -116,7 +116,6 @@ abstract class AbstractDumper implements DataDumperInterface, DumperInterface
     /**
      * Dumps a Data object.
      *
-     * @param Data                               $data   A Data object
      * @param callable|resource|string|true|null $output A line dumper callable, an opened stream, an output path or true to return the dump
      *
      * @return string|null The dump as string when $output is true
@@ -126,8 +125,8 @@ abstract class AbstractDumper implements DataDumperInterface, DumperInterface
         $this->decimalPoint = localeconv();
         $this->decimalPoint = $this->decimalPoint['decimal_point'];
 
-        if ($locale = $this->flags & (self::DUMP_COMMA_SEPARATOR | self::DUMP_TRAILING_COMMA) ? setlocale(LC_NUMERIC, 0) : null) {
-            setlocale(LC_NUMERIC, 'C');
+        if ($locale = $this->flags & (self::DUMP_COMMA_SEPARATOR | self::DUMP_TRAILING_COMMA) ? setlocale(\LC_NUMERIC, 0) : null) {
+            setlocale(\LC_NUMERIC, 'C');
         }
 
         if ($returnDump = true === $output) {
@@ -151,7 +150,7 @@ abstract class AbstractDumper implements DataDumperInterface, DumperInterface
                 $this->setOutput($prevOutput);
             }
             if ($locale) {
-                setlocale(LC_NUMERIC, $locale);
+                setlocale(\LC_NUMERIC, $locale);
             }
         }
 

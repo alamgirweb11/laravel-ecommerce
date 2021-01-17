@@ -2,15 +2,16 @@
 
 namespace Facade\FlareClient;
 
-use Throwable;
-use Facade\FlareClient\Glows\Glow;
-use Facade\IgnitionContracts\Solution;
-use Facade\FlareClient\Concerns\UsesTime;
 use Facade\FlareClient\Concerns\HasContext;
-use Facade\FlareClient\Stacktrace\Stacktrace;
+use Facade\FlareClient\Concerns\UsesTime;
 use Facade\FlareClient\Context\ContextInterface;
-use Facade\FlareClient\Solutions\ReportSolution;
 use Facade\FlareClient\Contracts\ProvidesFlareContext;
+use Facade\FlareClient\Enums\GroupingTypes;
+use Facade\FlareClient\Glows\Glow;
+use Facade\FlareClient\Solutions\ReportSolution;
+use Facade\FlareClient\Stacktrace\Stacktrace;
+use Facade\IgnitionContracts\Solution;
+use Throwable;
 
 class Report
 {
@@ -58,16 +59,30 @@ class Report
     /** @var int */
     private $openFrameIndex;
 
+    /** @var string */
+    private $groupBy;
+
     public static function createForThrowable(Throwable $throwable, ContextInterface $context, ?string $applicationPath = null): self
     {
         return (new static())
             ->setApplicationPath($applicationPath)
             ->throwable($throwable)
             ->useContext($context)
-            ->exceptionClass(get_class($throwable))
+            ->exceptionClass(self::getClassForThrowable($throwable))
             ->message($throwable->getMessage())
             ->stackTrace(Stacktrace::createForThrowable($throwable, $applicationPath))
             ->exceptionContext($throwable);
+    }
+
+    protected static function getClassForThrowable(Throwable $throwable): string
+    {
+        if ($throwable instanceof \Facade\Ignition\Exceptions\ViewException) {
+            if ($previous = $throwable->getPrevious()) {
+                return get_class($previous);
+            }
+        }
+
+        return get_class($throwable);
     }
 
     public static function createForMessage(string $message, string $logLevel, ContextInterface $context, ?string $applicationPath = null): self
@@ -206,6 +221,20 @@ class Report
         return $this;
     }
 
+    public function groupByTopFrame()
+    {
+        $this->groupBy = GroupingTypes::TOP_FRAME;
+
+        return $this;
+    }
+
+    public function groupByException()
+    {
+        $this->groupBy = GroupingTypes::EXCEPTION;
+
+        return $this;
+    }
+
     public function allContext(): array
     {
         $context = $this->context->toArray();
@@ -241,6 +270,7 @@ class Report
             'stage' => $this->stage,
             'message_level' => $this->messageLevel,
             'open_frame_index' => $this->openFrameIndex,
+            'group_by' => $this->groupBy ?? GroupingTypes::TOP_FRAME,
             'application_path' => $this->applicationPath,
         ];
     }
