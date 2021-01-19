@@ -218,7 +218,10 @@
                                                 <button class="product_cart_button">Add to Cart</button>
                                             </div>
                                         </div>
-                                        <div class="product_fav"><i class="fas fa-heart"></i></div>
+                                        <a href="{{url('add/wishlist/'.$featured->id)}}">
+                                        <div class="product_fav">
+                                        <i class="fas fa-heart"></i></div>
+                                      </a>
                                         <ul class="product_marks">
                                          @if($featured->discount_price == NULL)
                                          <li class="product_mark item_new">New</li>

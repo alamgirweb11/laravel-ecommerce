@@ -102,3 +102,5 @@ Route::get('admin/delete/post/{id}','Admin\Post\PostController@deletePost')->nam
 //  frontend============
 // newslatter section start
 Route::post('store/newslatter','Frontend\Newslatter\NewslatterCotroller@storeNewslatter')->name('store.newslatter');
+// wishlist 
+Route::get('add/wishlist/{id}', 'WishListController@addWishList');
