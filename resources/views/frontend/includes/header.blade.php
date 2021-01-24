@@ -3,6 +3,7 @@
 <head>
 <title>@yield('title')</title>
 <meta charset="utf-8">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="OneTech shop project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +15,11 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/slick-1.8.0/slick.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/responsive.css')}}">
- <!-- sweet alert -->
+<script src="{{ asset('frontend/js/jquery-3.3.1.min.js')}}"></script>
+
+ <!-- sweetalert -->
  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
+ {{-- sweetalert2 --}}
+ {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
 </head>

@@ -128,7 +128,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</div>
 </div>
 
-<script src="{{ asset('frontend/js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{ asset('frontend/styles/bootstrap4/popper.js')}}"></script>
 <script src="{{ asset('frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
 <script src="{{ asset('frontend/plugins/greensock/TweenMax.min.js')}}"></script>
@@ -144,6 +143,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 {{-- for sweet alert --}}
 <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+{{-- sweealert2 --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 {{-- js for get message before delete update any data or so more --}}
 <script>
     @if(Session::has('message'))

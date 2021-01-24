@@ -16,28 +16,29 @@ class WishListController extends Controller
                   'user_id' => $userId,
                   'product_id' => $productId,
            );
+          //  $insertData = WishList::create($data);
           if(Auth::check()){
                if($checkWishList){
-                $notification = array(
-                    'message' => 'This item already has your wishlist!',
-                    'alert_type' => 'error',
-                );
-                return redirect()->back()->with($notification);
+               //  $notification = array(
+               //      'message' => 'This item already has your wishlist!',
+               //      'alert_type' => 'error',
+               //  );
+               // return redirect()->back()->with($notification);
                }else{
-                    $insertData = WishList::create($data);
-                    $notification = array(
-                         'message' => 'This item add in your wishlist.',
-                         'alert_type' => 'success',
-                     );
-                     return redirect()->back()->with($notification);
+                    // $insertData = WishList::create($data);
+                    // $notification = array(
+                    //      'message' => 'This item add in your wishlist.',
+                    //      'alert_type' => 'success',
+                    //  );
+                    //  return redirect()->back()->with($notification);
                }
               
           }else{
-               $notification = array(
-                    'message' => 'At First Login Your Account.',
-                    'alert_type' => 'error',
-                ); 
-                return redirect()->back()->with($notification);
+               // $notification = array(
+               //      'message' => 'At First Login Your Account.',
+               //      'alert_type' => 'error',
+               //  ); 
+               //  return redirect()->back()->with($notification);
           }
      }
 }

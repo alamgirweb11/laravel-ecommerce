@@ -218,10 +218,11 @@
                                                 <button class="product_cart_button">Add to Cart</button>
                                             </div>
                                         </div>
-                                        <a href="{{url('add/wishlist/'.$featured->id)}}">
-                                        <div class="product_fav">
+                                        {{-- <a href="{{url('add/wishlist/'.$featured->id)}}"> --}}
+                                            <button href="" data-id="{{ $featured->id }}" class="addWishList">
+                                            <div class="product_fav">
                                         <i class="fas fa-heart"></i></div>
-                                      </a>
+                                            </button>
                                         <ul class="product_marks">
                                          @if($featured->discount_price == NULL)
                                          <li class="product_mark item_new">New</li>
@@ -2876,4 +2877,26 @@
         </div>
     </div>
 </div>
+
+<script>
+//  for wishlist
+               $(document).ready(function(){
+                $('.addWishList').on('click',function(){
+                    
+                 let id = $(this).data('id');
+                    if(id){
+                         $.ajax({
+                          url: "{{ url('/add/wishlist/') }}/"+id,
+                          type: "GET",
+                          dataType: "json",
+                          success: function(data){
+
+                          },
+                        });
+                    }else{
+                          alert('Wrong Entry!');
+                    }
+                });
+            });           
+</script>
 @endsection
