@@ -219,7 +219,7 @@
                                             </div>
                                         </div>
                                         {{-- <a href="{{url('add/wishlist/'.$featured->id)}}"> --}}
-                                            <button href="" data-id="{{ $featured->id }}" class="addWishList">
+                                            <button href=""  class="addWishList" data-id="{{ $featured->id }}">
                                             <div class="product_fav">
                                         <i class="fas fa-heart"></i></div>
                                             </button>
@@ -2881,6 +2881,7 @@
 <script>
 //  for wishlist
                $(document).ready(function(){
+                   
                 $('.addWishList').on('click',function(){
                     
                  let id = $(this).data('id');
