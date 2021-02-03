@@ -11,34 +11,21 @@ class WishListController extends Controller
      public function addWishList($id){
            $userId = Auth::id();
            $productId = $id;
-          //  $checkWishList = WishList::where('user_id',$userId)->where('product_id',$productId)->first();
+           $checkWishList = WishList::where('user_id',$userId)->where('product_id',$productId)->first();
            $data = array(
                   'user_id' => $userId,
                   'product_id' => $productId,
            );
-           $insertData = WishList::create($data);
-          // if(Auth::check()){
-               // if($checkWishList){
-               //  $notification = array(
-               //      'message' => 'This item already has your wishlist!',
-               //      'alert_type' => 'error',
-               //  );
-               // return redirect()->back()->with($notification);
-               // }else{
-                    // $insertData = WishList::create($data);
-                    // $notification = array(
-                    //      'message' => 'This item add in your wishlist.',
-                    //      'alert_type' => 'success',
-                    //  );
-                    //  return redirect()->back()->with($notification);
-               // }
+            if(Auth::check()){
+               if($checkWishList){
+               return response()->json(['error'=>'Product already added in your wishlist!']);
+                }else{
+                      $insertData = WishList::create($data);
+                      return response()->json(['success'=>'Product successfully added in wishlist.']);
+                }
               
-          // }else{
-               // $notification = array(
-               //      'message' => 'At First Login Your Account.',
-               //      'alert_type' => 'error',
-               //  ); 
-               //  return redirect()->back()->with($notification);
-          // }
+         }else{
+               return response()->json(['error'=>'At first login your account!']);
+           }
      }
 }

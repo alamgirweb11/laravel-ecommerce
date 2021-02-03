@@ -2891,7 +2891,24 @@
                           type: "GET",
                           dataType: "json",
                           success: function(data){
-
+                            if($.isEmptyObject(data.error)){
+                                Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: data.success,
+                                showConfirmButton: false,
+                                timer: 2000
+                                })
+               
+                            }else{
+                                Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: data.error,
+                                showConfirmButton: false,
+                                timer: 2000
+                                })
+                            }
                           },
                         });
                     }else{
