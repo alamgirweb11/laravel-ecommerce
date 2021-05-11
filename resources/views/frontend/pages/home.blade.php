@@ -219,10 +219,10 @@
                                             </div>
                                         </div>
                                         {{-- <a href="{{url('add/wishlist/'.$featured->id)}}"> --}}
-                                            <button href="javascript:void(0)"  class="addWishList" data-id="{{ $featured->id }}">
+                                            <a href="javascript:void(0)"  class="addWishList" data-id="{{ $featured->id }}">
                                             <div class="product_fav">
                                         <i class="fas fa-heart"></i></div>
-                                            </button>
+                                            </a>
                                         <ul class="product_marks">
                                          @if($featured->discount_price == NULL)
                                          <li class="product_mark item_new">New</li>
@@ -2877,7 +2877,6 @@
         </div>
     </div>
 </div>
-
 <script>
 //  for wishlist
                $(document).ready(function(){
@@ -2890,31 +2889,52 @@
                           url: "{{ url('/add/wishlist/') }}/"+id,
                           type: "GET",
                           dataType: "json",
-                          success: function(data){
-                            if($.isEmptyObject(data.error)){
-                                Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: data.success,
-                                showConfirmButton: false,
-                                timer: 2000
-                                })
+                        //   success: function(data){
+                        //     if($.isEmptyObject(data.error)){
+                        //         Swal.fire({
+                        //         position: 'top-end',
+                        //         icon: 'success',
+                        //         title: data.success,
+                        //         showConfirmButton: false,
+                        //         timer: 2000
+                        //         })
                
-                            }else{
-                                Swal.fire({
-                                position: 'top-end',
-                                icon: 'error',
-                                title: data.error,
-                                showConfirmButton: false,
-                                timer: 2000
-                                })
-                            }
-                          },
+                        //     }else{
+                        //         Swal.fire({
+                        //         position: 'top-end',
+                        //         icon: 'error',
+                        //         title: data.error,
+                        //         showConfirmButton: false,
+                        //         timer: 2000
+                        //         })
+                        //     }
+                        //   },
+                         success:function(data) {
+                       const Toast = Swal.mixin({
+                          toast: true,
+                          position: 'top-end',
+                          showConfirmButton: false,
+                          timer: 3000
+                        })
+
+                       if($.isEmptyObject(data.error)){
+                            Toast.fire({
+                              type: 'success',
+                              title: data.success
+                            })
+                       }else{
+                             Toast.fire({
+                                type: 'error',
+                                title: data.error
+                            })
+                       }
+
+                     },
                         });
                     }else{
                           alert('Wrong Entry!');
                     }
                 });
-            });           
+            });   
 </script>
 @endsection
