@@ -219,7 +219,7 @@
                                             </div>
                                         </div>
                                         {{-- <a href="{{url('add/wishlist/'.$featured->id)}}"> --}}
-                                            <button href=""  class="addWishList" data-id="{{ $featured->id }}">
+                                            <button href="javascript:void(0)"  class="addWishList" data-id="{{ $featured->id }}">
                                             <div class="product_fav">
                                         <i class="fas fa-heart"></i></div>
                                             </button>

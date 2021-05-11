@@ -8,7 +8,7 @@
   <div class="sl-pagebody">
        <div class="card pd-20 pd-sm-40">
       <h6 class="card-body-title pb-2">Product Details</h6>
-      <div class="form-layout">
+      <div class="table-wrapper">
         <div class="row mg-b-25">
              <table class="table table-responsive table-hover">
                 <tr> <th>Product Name</th> <td>{{ $product->product_name }}</td></tr>
@@ -20,7 +20,7 @@
                 <tr> <th>Selling Price</th> <td>{{ $product->selling_price}}</td></tr>
                 <tr> <th>Discount Price</th> <td>{{ $product->discount_price}}</td></tr>
                 <tr> <th>Quantity</th> <td>{{ $product->product_quantity }}</td></tr>
-                <tr> <th>Details</th> <td>{{ $product->product_details }}</td></tr>
+                <tr> <th>Details</th> <td>{!! $product->product_details !!}</td></tr>
                 <tr> <th>Image-1</th> <td><img src="{{ asset($product->image_one) }}" style="height:100px; width:100px;" alt="Image One"></td></tr>
                 <tr> <th>Image-2</th> <td><img src="{{ asset($product->image_two) }}" style="height:100px; width:100px;" alt="Image Two"></td></tr>
                 <tr> <th>Image-3</th> <td><img src="{{ asset($product->image_three) }}" style="height:100px; width:100px;" alt="Image Three"></td></tr>
@@ -37,5 +37,4 @@
    
   </div><!-- sl-pagebody --> 
 </div><!-- sl-mainpanel -->
-
 @endsection
